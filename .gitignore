@@ -1,0 +1,26 @@
+# Video files
+*.mov
+*.MOV
+*.mp4
+*.MP4
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Screenshots (optional, uncomment if needed)
+# *.png
+# *.jpg
+# *.jpeg
+
+# App Connect files
+app connect/
+
+# Node modules
+website/node_modules/
+website/.next/
+website/out/
