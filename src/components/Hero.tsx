@@ -1,13 +1,25 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Hero.module.css";
 import Button from "./Button";
 import { useLanguage } from "../context/LanguageContext";
-import { Apple, Play } from "lucide-react";
+import { Apple, Play, Volume2 } from "lucide-react";
 
 export default function Hero() {
     const { t } = useLanguage();
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsPlaying(true);
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, []);
+
+    const handlePlay = () => {
+        setIsPlaying(true);
+    };
 
     return (
         <section className={styles.hero}>
@@ -31,7 +43,8 @@ export default function Hero() {
                         <Button size="default" icon={<Apple size={20} />}>
                             {t.hero.ctaPrimary}
                         </Button>
-                        <Button variant="secondary" size="default" icon={<Play size={20} />}>
+                        {/* Scroll to video or trigger play */}
+                        <Button variant="secondary" size="default" icon={<Play size={20} />} onClick={handlePlay}>
                             {t.hero.ctaSecondary}
                         </Button>
                     </div>
@@ -39,12 +52,29 @@ export default function Hero() {
 
                 <div className={styles.visual}>
                     <div className={styles.videoWrapper}>
-                        <iframe
-                            src="https://www.youtube.com/embed/K2FzUCbyyi4?autoplay=1&mute=1&playlist=K2FzUCbyyi4&loop=1&controls=0&showinfo=0&rel=0"
-                            title="VoiceBear Demo"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        />
+                        {!isPlaying ? (
+                            <div className={styles.thumbnailOverlay} onClick={handlePlay}>
+                                <img
+                                    src="https://img.youtube.com/vi/K2FzUCbyyi4/maxresdefault.jpg"
+                                    alt="Demo Video"
+                                    className={styles.thumbnail}
+                                />
+                                <div className={styles.playButtonWrapper}>
+                                    <div className={styles.playButtonPulse} />
+                                    <button className={styles.playButton}>
+                                        <Play size={32} fill="currentColor" className={styles.playIcon} />
+                                    </button>
+                                    <div className={styles.playText}>Watch Demo</div>
+                                </div>
+                            </div>
+                        ) : (
+                            <iframe
+                                src="https://www.youtube.com/embed/K2FzUCbyyi4?autoplay=1&mute=0&rel=0&showinfo=0&modestbranding=1"
+                                title="VoiceBear Demo"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        )}
                     </div>
                 </div>
             </div>
