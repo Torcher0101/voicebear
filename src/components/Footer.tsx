@@ -21,12 +21,7 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div className={styles.links}>
-                        <a href="https://github.com/torcher0101" target="_blank" rel="noopener noreferrer" className={styles.link}>
-                            <Github size={20} />
-                        </a>
-                        {/* Add more social links here */}
-                    </div>
+                    {/* Social links removed for privacy */}
                 </div>
             </div>
         </footer>
