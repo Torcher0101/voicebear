@@ -15,18 +15,18 @@ export default function HowItWorks() {
                 <div className={styles.steps}>
                     <div className={styles.step}>
                         <div className={styles.stepNumber}>1</div>
-                        <h3 className={styles.stepTitle}>Shortcut</h3>
-                        <p className={styles.stepDesc}>Press Option + Space to activate VoiceBear instantly.</p>
+                        <h3 className={styles.stepTitle}>{t.howItWorks.step1Title}</h3>
+                        <p className={styles.stepDesc}>{t.howItWorks.step1Desc}</p>
                     </div>
                     <div className={styles.step}>
                         <div className={styles.stepNumber}>2</div>
-                        <h3 className={styles.stepTitle}>Speak</h3>
-                        <p className={styles.stepDesc}>Speak naturally. Your voice is captured and processed locally.</p>
+                        <h3 className={styles.stepTitle}>{t.howItWorks.step2Title}</h3>
+                        <p className={styles.stepDesc}>{t.howItWorks.step2Desc}</p>
                     </div>
                     <div className={styles.step}>
                         <div className={styles.stepNumber}>3</div>
-                        <h3 className={styles.stepTitle}>Transcribe</h3>
-                        <p className={styles.stepDesc}>Text appears in your active application in real-time.</p>
+                        <h3 className={styles.stepTitle}>{t.howItWorks.step3Title}</h3>
+                        <p className={styles.stepDesc}>{t.howItWorks.step3Desc}</p>
                     </div>
                 </div>
             </div>

@@ -26,8 +26,17 @@ type Translations = {
         windowTitle: string;
         windowDesc: string;
     };
+    howItWorks: {
+        step1Title: string;
+        step1Desc: string;
+        step2Title: string;
+        step2Desc: string;
+        step3Title: string;
+        step3Desc: string;
+    };
     footer: {
         rights: string;
+        privacyPolicy: string;
     };
 };
 
@@ -54,8 +63,17 @@ const translations: Record<Language, Translations> = {
             windowTitle: "Hide & Seek",
             windowDesc: "Runs in the background. Press a shortcut to summon, click away to hide.",
         },
+        howItWorks: {
+            step1Title: "Shortcut",
+            step1Desc: "Press Option + Space to activate VoiceBear instantly.",
+            step2Title: "Speak",
+            step2Desc: "Speak naturally. Your voice is captured and processed locally.",
+            step3Title: "Transcribe",
+            step3Desc: "Text appears in your active application in real-time.",
+        },
         footer: {
             rights: "© 2025 VoiceBear. All rights reserved.",
+            privacyPolicy: "Privacy Policy",
         },
     },
     tw: {
@@ -80,8 +98,17 @@ const translations: Record<Language, Translations> = {
             windowTitle: "隱形助手",
             windowDesc: "在背景靜默運行。快捷鍵喚出，點擊即隱藏。",
         },
+        howItWorks: {
+            step1Title: "快捷啟動",
+            step1Desc: "按下 Option + Space 瞬間喚醒 VoiceBear。",
+            step2Title: "自然說話",
+            step2Desc: "自然地說出想法。您的語音將在本地即時捕捉並處理。",
+            step3Title: "即時轉錄",
+            step3Desc: "文字將即時輸入到您當前使用的應用程式中。",
+        },
         footer: {
             rights: "© 2025 VoiceBear. 版權所有。",
+            privacyPolicy: "隱私權聲明",
         },
     },
 };

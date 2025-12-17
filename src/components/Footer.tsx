@@ -14,7 +14,11 @@ export default function Footer() {
                 <div className={styles.content}>
                     <div className="brand">
                         <div className={styles.logo}>VoiceBear</div>
-                        <p className={styles.copyright}>{t.footer.rights}</p>
+                        <p className={styles.copyright}>
+                            {t.footer.rights}
+                            <span className={styles.divider}>•</span>
+                            <a href="/privacy" className={styles.privacyLink}>{t.footer.privacyPolicy}</a>
+                        </p>
                     </div>
 
                     <div className={styles.links}>
