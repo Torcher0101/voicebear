@@ -36,7 +36,7 @@ jobs:
         # Set BASE_PATH if needed, e.g., /voicebear-website
         run: npm run build
         env:
-          BASE_PATH: "" 
+          BASE_PATH: "/voicebear" 
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
