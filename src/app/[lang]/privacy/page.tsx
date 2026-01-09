@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Button from "../../components/Button";
+import Button from "@/components/Button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import { useLanguage } from "../../context/LanguageContext";
+import Navbar from "@/components/Navbar";
+import { useLanguage } from "@/context/LanguageContext";
 import { privacyPolicyData } from "./data";
 
 export default function PrivacyPage() {

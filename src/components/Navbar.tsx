@@ -26,13 +26,13 @@ export default function Navbar() {
     return (
         <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
             <div className={styles.navContainer}>
-                <Link href="/" className={styles.logo}>
+                <Link href={`/${language}`} className={styles.logo}>
                     VoiceBear
                 </Link>
 
                 <nav className={styles.links}>
-                    <Link href="/#features" className={styles.link}>{t.nav.features}</Link>
-                    <Link href="/#how-it-works" className={styles.link}>{t.nav.howItWorks}</Link>
+                    <Link href={`/${language}#features`} className={styles.link}>{t.nav.features}</Link>
+                    <Link href={`/${language}#how-it-works`} className={styles.link}>{t.nav.howItWorks}</Link>
                 </nav>
 
                 <div className={styles.actions}>
