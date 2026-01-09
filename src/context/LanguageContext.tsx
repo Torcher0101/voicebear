@@ -49,13 +49,13 @@ const translations: Record<Language, Translations> = {
         },
         hero: {
             title: "Type at the Speed of Thought",
-            subtitle: "The fastest AI transcription tool for macOS. Privacy-first, completely offline.",
+            subtitle: "The fastest AI transcription tool for macOS & iPhone. Privacy-first, completely offline.",
             ctaPrimary: "Download for macOS",
             ctaSecondary: "Watch Demo",
         },
         features: {
             privacyTitle: "100% Privacy",
-            privacyDesc: "Everything runs locally on your device. Your voice data never leaves your Mac.",
+            privacyDesc: "Everything runs locally on your device. Your voice data never leaves your Mac or iPhone.",
             speedTitle: "Instant Speed",
             speedDesc: "Powered by Apple Silicon ANE acceleration for lightning-fast transcription.",
             offlineTitle: "Offline Capable",
@@ -84,13 +84,13 @@ const translations: Record<Language, Translations> = {
         },
         hero: {
             title: "說話即寫作，唯快不破",
-            subtitle: "專為 macOS 打造的極速 AI 轉錄工具。隱私優先，全離線支援。",
+            subtitle: "專為 macOS 與 iPhone 打造的極速 AI 轉錄工具。隱私優先，全離線支援。",
             ctaPrimary: "下載 macOS 版本",
             ctaSecondary: "觀看演示",
         },
         features: {
             privacyTitle: "絕對隱私",
-            privacyDesc: "所有運算皆在本地完成。您的語音數據永遠不會離開您的 Mac。",
+            privacyDesc: "所有運算皆在本地完成。您的語音數據永遠不會離開您的 Mac 或 iPhone。",
             speedTitle: "極致速度",
             speedDesc: "基於 Apple Silicon ANE 加速，實現閃電般的轉錄體驗。",
             offlineTitle: "全離線支援",
