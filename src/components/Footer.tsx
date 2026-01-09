@@ -6,7 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { Github, Twitter } from "lucide-react";
 
 export default function Footer() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <footer className={styles.footer}>
@@ -17,7 +17,7 @@ export default function Footer() {
                         <p className={styles.copyright}>
                             {t.footer.rights}
                             <span className={styles.divider}>•</span>
-                            <a href="/privacy" className={styles.privacyLink}>{t.footer.privacyPolicy}</a>
+                            <a href={`/${language}/privacy`} className={styles.privacyLink}>{t.footer.privacyPolicy}</a>
                         </p>
                     </div>
 

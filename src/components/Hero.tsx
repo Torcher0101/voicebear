@@ -41,11 +41,11 @@ export default function Hero() {
 
                     <div className={styles.actions}>
                         <Button size="default" icon={<Apple size={20} />}>
-                            {t.hero.ctaPrimary}
+                            {t.hero.downloadMac}
                         </Button>
                         {/* Scroll to video or trigger play */}
                         <Button variant="secondary" size="default" icon={<Play size={20} />} onClick={handlePlay}>
-                            {t.hero.ctaSecondary}
+                            {t.hero.watchVideo}
                         </Button>
                     </div>
                 </div>
