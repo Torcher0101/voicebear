@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 import Button from "./Button";
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import { Download } from "lucide-react";
 
@@ -25,13 +26,13 @@ export default function Navbar() {
     return (
         <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
             <div className={styles.navContainer}>
-                <div className={styles.logo}>
+                <Link href="/" className={styles.logo}>
                     VoiceBear
-                </div>
+                </Link>
 
                 <nav className={styles.links}>
-                    <a href="#features" className={styles.link}>{t.nav.features}</a>
-                    <a href="#how-it-works" className={styles.link}>{t.nav.howItWorks}</a>
+                    <Link href="/#features" className={styles.link}>{t.nav.features}</Link>
+                    <Link href="/#how-it-works" className={styles.link}>{t.nav.howItWorks}</Link>
                 </nav>
 
                 <div className={styles.actions}>
