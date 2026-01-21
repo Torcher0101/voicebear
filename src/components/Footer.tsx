@@ -3,6 +3,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import { useLanguage } from "../context/LanguageContext";
+import Link from "next/link";
 import { Github, Twitter } from "lucide-react";
 
 export default function Footer() {
@@ -17,7 +18,7 @@ export default function Footer() {
                         <p className={styles.copyright}>
                             {t.footer.rights}
                             <span className={styles.divider}>•</span>
-                            <a href={`/${language}/privacy`} className={styles.privacyLink}>{t.footer.privacyPolicy}</a>
+                            <Link href={`/${language}/privacy`} className={styles.privacyLink}>{t.footer.privacyPolicy}</Link>
                         </p>
                     </div>
 
