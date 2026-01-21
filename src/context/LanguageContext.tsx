@@ -16,6 +16,9 @@ interface HeroTranslations {
     subtitle: ReactNode;
     subtitleMobile: ReactNode;
     downloadMac: string;
+    downloadiOS: string;
+    downloadMacOS: string;
+    availableOn: string;
     watchVideo: string;
     requirements: string;
     version: string;
@@ -79,6 +82,9 @@ const translations: Record<Language, Translations> = {
             subtitle: <>Experience the future of voice typing with <span className="highlight-text">local AI processing</span>. Fast, private, and accurate.</>,
             subtitleMobile: <>Experience the future of voice typing on <span className="highlight-text">iPhone & Mac</span>.</>,
             downloadMac: "Download for macOS",
+            downloadiOS: "Download for iPhone",
+            downloadMacOS: "Download for macOS",
+            availableOn: "Available on",
             watchVideo: "Watch Demo",
             requirements: "macOS 13.0+ (Apple Silicon Recommended)",
             version: "v1.0.3",
@@ -137,6 +143,9 @@ const translations: Record<Language, Translations> = {
             subtitle: <>體驗未來的語音輸入方式。<br /><span className="highlight-text">本地 AI 運算</span>，快速、私密且精準。</>,
             subtitleMobile: <>在 <span className="highlight-text">iPhone 與 Mac</span> 上<br />體驗極速語音輸入。</>,
             downloadMac: "下載 macOS 版本",
+            downloadiOS: "下載 iPhone 版本",
+            downloadMacOS: "下載 macOS 版本",
+            availableOn: "現已登陸",
             watchVideo: "觀看演示",
             requirements: "macOS 13.0+ (建議使用 Apple Silicon)",
             version: "v1.0.3",

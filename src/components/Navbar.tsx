@@ -5,11 +5,25 @@ import styles from "./Navbar.module.css";
 import Button from "./Button";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
-import { Download } from "lucide-react";
+import { Download, Apple, Smartphone } from "lucide-react";
+
+type Platform = "ios" | "macos" | "other";
 
 export default function Navbar() {
     const { t, language, setLanguage } = useLanguage();
     const [scrolled, setScrolled] = useState(false);
+    const [platform, setPlatform] = useState<Platform>("other");
+
+    useEffect(() => {
+        const userAgent = navigator.userAgent.toLowerCase();
+        if (/(iphone|ipod|ipad)/i.test(userAgent)) {
+            setPlatform("ios");
+        } else if (/mac/i.test(userAgent)) {
+            setPlatform("macos");
+        } else {
+            setPlatform("other");
+        }
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,6 +36,11 @@ export default function Navbar() {
     const toggleLanguage = () => {
         setLanguage(language === "en" ? "tw" : "en");
     };
+
+    const iosLink = "https://apps.apple.com/tw/app/voicebear/id6756269777";
+    const macosLink = "https://apps.apple.com/tw/app/voicebear/id6756269777?l=en-GB";
+    const downloadLink = platform === "ios" ? iosLink : macosLink;
+    const downloadIcon = platform === "ios" ? <Smartphone size={16} /> : <Apple size={16} />;
 
     return (
         <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
@@ -40,7 +59,7 @@ export default function Navbar() {
                         {language === "en" ? "中文" : "English"}
                     </button>
 
-                    <Button size="small" icon={<Download size={16} />}>
+                    <Button size="small" icon={downloadIcon} href={downloadLink}>
                         {t.nav.download}
                     </Button>
                 </div>

@@ -1,7 +1,7 @@
 .button {
     display: inline-flex;
     align-items: center;
-    justify_content: center;
+    justify-content: center;
     padding: 12px 24px;
     border-radius: 12px;
     font-weight: 600;
@@ -11,6 +11,7 @@
     border: none;
     outline: none;
     gap: 8px;
+    text-decoration: none;
 }
 
 .primary {
@@ -43,6 +44,17 @@
 .ghost:hover {
     color: var(--color-text-primary);
     background: rgba(255, 255, 255, 0.05);
+}
+
+.cta {
+    background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.25);
+}
+
+.cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
 }
 
 .small {
