@@ -1,0 +1,116 @@
+"use client";
+
+import React, { useState } from "react";
+import styles from "./Contact.module.css";
+import { Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+
+export default function Contact() {
+    const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+    const [result, setResult] = useState("");
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus("sending");
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+
+        // 🔥 REPLACE WITH YOUR ACCESS KEY FROM web3forms.com
+        formData.append("access_key", "718405e7-49c4-4efa-8afe-16c72dd84870");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setStatus("success");
+                setResult("Message sent successfully!");
+                form.reset();
+            } else {
+                console.error("Error", data);
+                setStatus("error");
+                setResult(data.message || "Something went wrong.");
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus("error");
+            setResult("Failed to send message. Please try again.");
+        }
+    };
+
+    return (
+        <section id="contact" className={styles.section}>
+            <div className="container">
+                <div className={styles.header}>
+                    <h2 className={styles.title}>Contact & Support</h2>
+                    <p className={styles.subtitle}>Have questions or feedback? We'd love to hear from you.</p>
+                </div>
+
+                <div className={styles.formWrapper}>
+                    <form onSubmit={handleSubmit} className={styles.form}>
+                        <input type="hidden" name="subject" value="VoiceBear Support Request" />
+                        <input type="hidden" name="from_name" value="VoiceBear Website" />
+                        {/* Honeypot to prevent spam */}
+                        <input type="checkbox" name="botcheck" className={styles.hidden} style={{ display: "none" }} />
+
+                        <div className={styles.group}>
+                            <label htmlFor="name" className={styles.label}>Name</label>
+                            <input type="text" id="name" name="name" className={styles.input} placeholder="Your name (Optional)" />
+                        </div>
+
+                        <div className={styles.group}>
+                            <label htmlFor="email" className={styles.label}>Email</label>
+                            <input type="email" id="email" name="email" required className={styles.input} placeholder="your@email.com" />
+                        </div>
+
+                        <div className={styles.group}>
+                            <label htmlFor="type" className={styles.label}>Inquiry Type</label>
+                            <select id="type" name="type" className={styles.select}>
+                                <option value="support">Technical Support</option>
+                                <option value="bug">Report a Bug</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div className={styles.group}>
+                            <label htmlFor="message" className={styles.label}>Message</label>
+                            <textarea id="message" name="message" required className={styles.textarea} rows={5} placeholder="How can we help you?"></textarea>
+                        </div>
+
+                        <button type="submit" disabled={status === "sending" || status === "success"} className={styles.button}>
+                            {status === "sending" ? (
+                                <>
+                                    <Loader2 className={styles.spin} size={20} /> Sending...
+                                </>
+                            ) : status === "success" ? (
+                                <>
+                                    <CheckCircle size={20} /> Sent!
+                                </>
+                            ) : (
+                                <>
+                                    <Send size={20} /> Send Message
+                                </>
+                            )}
+                        </button>
+
+                        {status === "error" && (
+                            <div className={styles.error}>
+                                <AlertCircle size={16} /> {result}
+                            </div>
+                        )}
+                        {status === "success" && (
+                            <div className={styles.success}>
+                                <CheckCircle size={16} /> Thank you! We will get back to you soon.
+                            </div>
+                        )}
+                    </form>
+                </div>
+            </div>
+        </section>
+    );
+}
