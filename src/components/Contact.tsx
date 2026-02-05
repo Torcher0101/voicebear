@@ -3,8 +3,10 @@
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
 import { Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Contact() {
+    const { t } = useLanguage();
     const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
     const [result, setResult] = useState("");
 
@@ -28,17 +30,17 @@ export default function Contact() {
 
             if (data.success) {
                 setStatus("success");
-                setResult("Message sent successfully!");
+                setResult(t.contact.sent);
                 form.reset();
             } else {
                 console.error("Error", data);
                 setStatus("error");
-                setResult(data.message || "Something went wrong.");
+                setResult(data.message || t.contact.error);
             }
         } catch (error) {
             console.error(error);
             setStatus("error");
-            setResult("Failed to send message. Please try again.");
+            setResult(t.contact.error);
         }
     };
 
@@ -46,8 +48,8 @@ export default function Contact() {
         <section id="contact" className={styles.section}>
             <div className="container">
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Contact & Support</h2>
-                    <p className={styles.subtitle}>Have questions or feedback? We'd love to hear from you.</p>
+                    <h2 className={styles.title}>{t.contact.title}</h2>
+                    <p className={styles.subtitle}>{t.contact.subtitle}</p>
                 </div>
 
                 <div className={styles.formWrapper}>
@@ -58,42 +60,42 @@ export default function Contact() {
                         <input type="checkbox" name="botcheck" className={styles.hidden} style={{ display: "none" }} />
 
                         <div className={styles.group}>
-                            <label htmlFor="name" className={styles.label}>Name</label>
-                            <input type="text" id="name" name="name" className={styles.input} placeholder="Your name (Optional)" />
+                            <label htmlFor="name" className={styles.label}>{t.contact.name}</label>
+                            <input type="text" id="name" name="name" className={styles.input} placeholder={t.contact.namePlaceholder} />
                         </div>
 
                         <div className={styles.group}>
-                            <label htmlFor="email" className={styles.label}>Email</label>
-                            <input type="email" id="email" name="email" required className={styles.input} placeholder="your@email.com" />
+                            <label htmlFor="email" className={styles.label}>{t.contact.email}</label>
+                            <input type="email" id="email" name="email" required className={styles.input} placeholder={t.contact.emailPlaceholder} />
                         </div>
 
                         <div className={styles.group}>
-                            <label htmlFor="type" className={styles.label}>Inquiry Type</label>
+                            <label htmlFor="type" className={styles.label}>{t.contact.type}</label>
                             <select id="type" name="type" className={styles.select}>
-                                <option value="support">Technical Support</option>
-                                <option value="bug">Report a Bug</option>
-                                <option value="feature">Feature Request</option>
-                                <option value="other">Other</option>
+                                <option value="support">{t.contact.typeSupport}</option>
+                                <option value="bug">{t.contact.typeBug}</option>
+                                <option value="feature">{t.contact.typeFeature}</option>
+                                <option value="other">{t.contact.typeOther}</option>
                             </select>
                         </div>
 
                         <div className={styles.group}>
-                            <label htmlFor="message" className={styles.label}>Message</label>
-                            <textarea id="message" name="message" required className={styles.textarea} rows={5} placeholder="How can we help you?"></textarea>
+                            <label htmlFor="message" className={styles.label}>{t.contact.message}</label>
+                            <textarea id="message" name="message" required className={styles.textarea} rows={5} placeholder={t.contact.messagePlaceholder}></textarea>
                         </div>
 
                         <button type="submit" disabled={status === "sending" || status === "success"} className={styles.button}>
                             {status === "sending" ? (
                                 <>
-                                    <Loader2 className={styles.spin} size={20} /> Sending...
+                                    <Loader2 className={styles.spin} size={20} /> {t.contact.sending}
                                 </>
                             ) : status === "success" ? (
                                 <>
-                                    <CheckCircle size={20} /> Sent!
+                                    <CheckCircle size={20} /> {t.contact.sent}
                                 </>
                             ) : (
                                 <>
-                                    <Send size={20} /> Send Message
+                                    <Send size={20} /> {t.contact.send}
                                 </>
                             )}
                         </button>
@@ -105,7 +107,7 @@ export default function Contact() {
                         )}
                         {status === "success" && (
                             <div className={styles.success}>
-                                <CheckCircle size={16} /> Thank you! We will get back to you soon.
+                                <CheckCircle size={16} /> {t.contact.success}
                             </div>
                         )}
                     </form>

@@ -8,6 +8,8 @@ type Language = "en" | "tw";
 interface NavTranslations {
     features: string;
     howItWorks: string;
+    support: string;
+    privacy: string;
     download: string;
 }
 
@@ -56,11 +58,33 @@ interface FooterTranslations {
     privacyPolicy: string;
 }
 
+interface ContactTranslations {
+    title: string;
+    subtitle: string;
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    type: string;
+    typeSupport: string;
+    typeBug: string;
+    typeFeature: string;
+    typeOther: string;
+    message: string;
+    messagePlaceholder: string;
+    send: string;
+    sending: string;
+    sent: string;
+    success: string;
+    error: string;
+}
+
 interface Translations {
     nav: NavTranslations;
     hero: HeroTranslations;
     features: FeaturesTranslations;
     howItWorks: HowItWorksTranslations;
+    contact: ContactTranslations;
     footer: FooterTranslations;
 }
 
@@ -75,6 +99,8 @@ const translations: Record<Language, Translations> = {
         nav: {
             features: "Features",
             howItWorks: "How it works",
+            support: "Support",
+            privacy: "Privacy",
             download: "Download"
         },
         hero: {
@@ -130,12 +156,34 @@ const translations: Record<Language, Translations> = {
         footer: {
             rights: "© 2026 VoiceBear. All rights reserved.",
             privacyPolicy: "Privacy Policy"
+        },
+        contact: {
+            title: "Contact & Support",
+            subtitle: "Have questions or feedback? We'd love to hear from you.",
+            name: "Name",
+            namePlaceholder: "Your name (Optional)",
+            email: "Email",
+            emailPlaceholder: "your@email.com",
+            type: "Inquiry Type",
+            typeSupport: "Technical Support",
+            typeBug: "Report a Bug",
+            typeFeature: "Feature Request",
+            typeOther: "Other",
+            message: "Message",
+            messagePlaceholder: "How can we help you?",
+            send: "Send Message",
+            sending: "Sending...",
+            sent: "Sent!",
+            success: "Thank you! We will get back to you soon.",
+            error: "Failed to send message. Please try again."
         }
     },
     tw: {
         nav: {
             features: "功能特色",
             howItWorks: "如何使用",
+            support: "聯絡與支援",
+            privacy: "隱私權聲明",
             download: "下載試用版"
         },
         hero: {
@@ -191,6 +239,26 @@ const translations: Record<Language, Translations> = {
         footer: {
             rights: "© 2026 VoiceBear. 版權所有。",
             privacyPolicy: "隱私權聲明"
+        },
+        contact: {
+            title: "聯絡與支援",
+            subtitle: "有任何問題或建議嗎？我們很樂意聽取您的意見。",
+            name: "姓名",
+            namePlaceholder: "您的姓名 (選填)",
+            email: "電子郵件",
+            emailPlaceholder: "your@email.com",
+            type: "諮詢類型",
+            typeSupport: "技術支援",
+            typeBug: "回報錯誤",
+            typeFeature: "功能建議",
+            typeOther: "其他",
+            message: "訊息內容",
+            messagePlaceholder: "我們能為您提供什麼幫助？",
+            send: "發送訊息",
+            sending: "發送中...",
+            sent: "已發送！",
+            success: "謝謝您！我們將盡快回覆。",
+            error: "發送失敗，請稍後再試。"
         }
     }
 };

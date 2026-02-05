@@ -52,6 +52,8 @@ export default function Navbar() {
                 <nav className={styles.links}>
                     <Link href={`/${language}#features`} className={styles.link}>{t.nav.features}</Link>
                     <Link href={`/${language}#how-it-works`} className={styles.link}>{t.nav.howItWorks}</Link>
+                    <Link href={`/${language}/support`} className={styles.link}>{t.nav.support}</Link>
+                    <Link href={`/${language}/privacy`} className={styles.link}>{t.nav.privacy}</Link>
                 </nav>
 
                 <div className={styles.actions}>

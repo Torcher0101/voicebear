@@ -19,6 +19,8 @@ export default function Footer() {
                             {t.footer.rights}
                             <span className={styles.divider}>•</span>
                             <Link href={`/${language}/privacy`} className={styles.privacyLink}>{t.footer.privacyPolicy}</Link>
+                            <span className={styles.divider}>•</span>
+                            <Link href={`/${language}/support`} className={styles.privacyLink}>{t.contact.title}</Link>
                         </p>
                     </div>
 
